@@ -1,0 +1,51 @@
+@import reset
+@import color
+
+$border: 2px solid $gray_2
+$border-style: none
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+@import typography
+@import button
+
+body
+  background: -webkit-linear-gradient(to left, $gray_1, $gray_2)
+  background: linear-gradient(to left, $gray_1, $gray_2)
+
+.container
+  margin-right: auto
+  margin-left: auto
+  text-align: center
+  width: 60%
+  margin-bottom: 40px
+
+.logo
+  margin-top: 20px
+  margin-bottom: 40px
+
+.section-number
+  background-color: $teal
+  padding: 0 10px 0 10px
+  border-radius: 50%
+  width: 20px
+  font-size: 24px
+  display: inline-block
+  margin-right: 10px
+
+.section-number span
+  text-align: center
+  line-height: 40px
+  display: block
+  font-family: $main-font
+  font-weight: 600
+  color: $gray_2
+
+.section-name
+  display: inline-block
+
+.section
+  margin-top: 50px

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" style="text/css" href="
+    https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css"/>
+    <link rel="stylesheet" style="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono|Poppins:400,600" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="intro">
+        <img class="logo" src="sass_logo.svg" height="400px" />
+        <h1>Not just for teenagers!</h1>
+        <p>
+          <a href="http://sass-lang.com/" class="pink" target="blank">
+            For more information, check out more SASS here
+          </a>
+        </p>
+      </div>
+      <div class="section">
+        <p>To get started with Sass, install the gem from the command line.</p>
+        <p><span class="code">gem install sass</span></p>
+        <p>Sass is going to preprocess your sass code and magically turn
+          it into CSS. But first you need to tell it which file to take in
+          and where to put the result.</p>
+        <p><span class="code">sass input.sass output.css</span></p>
+      </div>
+      <div class="section">
+        <div class="section-number"><span>1</span></div>
+        <h1 class="section-name">Variables</h1>
+        <p>You can assign variables for things you are going to use over and
+        over by starting them with a '$'. This works really well for colors,
+        font stacks.</p>
+        <p><span class="code">$teal: #43cea2</span></p>
+        <p><span class="code">$main-font: 'Poppins', sans-serif</span></p>
+        <p class="code">h1<br />font-family: $main-font</p>
+        <p>This way, changing a color or font would involve changing just one line of
+        the CSS.</p>
+        <p>Fun fact: underscores and hyphens can be used interchangeably. For
+        example <span class="code">$main-width</span> can access
+        <span class="code">$main_width</span> and vice versa.</p>
+      </div>
+      <div class="section">
+        <div class="section-number"><span>2</span></div>
+        <h1 class="section-name">Nesting</h1>
+        <p>Sometimes you might want to use the nested rule's parent selector
+          using the &amp; character. For example: hovering on a link</p>
+        <p class="code">a<br />&emsp;color: white<br />&emsp;&:hover<br/>&emsp;&emsp;color: $pink</p>
+        <p>
+          <a href="#" class="pink" target="blank">Example Link</a>
+        </p>
+        <p>Navigation is another great place for nesting styles.</p>
+        <p class="code">
+          nav<br />
+          &emsp; ul<br />
+          &emsp; &emsp; list-style: none<br /><br />
+          &emsp; li<br />
+          &emsp; &emsp; display: inline-block<br /><br />
+          &emsp; a<br />
+          &emsp;&emsp; text-decoration: none
+        </p>
+      </div>
+      <div class="section">
+        <div class="section-number"><span>3</span></div>
+        <h1 class="section-name">Partials</h1>
+        <p>Some features lend themselves naturally to being pulled out into
+        another file, as I've done here with the button.</p>
+        <p>You will need to do two things:</p>
+        <ol>
+          <li>
+            <p>1. make a new file that begins with an underscore</p>
+            <p class="code">_button.sass</p>
+          </li>
+          <li>
+            <p>2. import this file into your main SASS stylesheet</p>
+            <p class="code">@import button.sass</p>
+          </li>
+        </ol>
+        <p>Order is important here, so make sure you are loading things like
+          colors first.</p>
+        <button type="button" class="button">Button</button>
+        <button type="button" class="button">Another Button</button>
+      </div>
+      <div class="section">
+        <div class="section-number"><span>4</span></div>
+        <h1 class="section-name">Import</h1>
+        <p>As you've probably noticed, CSS gets pretty unruly pretty fast.
+        The @import feature allows the file to be broken up. And actually, SASS will figure
+        out the file extensions for you so you don't need to add '.sass'.</p>
+        <p class="code">@import reset<br />
+          @import typography<br />
+          @import button
+        </p>
+      </div>
+      <div class="section">
+        <div class="section-number"><span>5</span></div>
+        <h1 class="section-name">Mixins</h1>
+        <p>Mixins are particularly handy for vendor prefixes. Unfortunately
+          all browsers prefer slightly different syntax, but mixins make
+          it easy to DRY this up.</p>
+        <p class="code">
+          =border-radius($radius)<br />
+          &emsp;-webkit-border-radius: $radius<br />
+          &emsp;-moz-border-radius:    $radius<br />
+          &emsp;-ms-border-radius:     $radius<br />
+          &emsp;border-radius:         $radius<br />
+        </p>
+        <p>and specify this where you need it, passing in a radius</p>
+        <p class="code">
+          .code<br />
+          &emsp;+border-radius(5px)
+        </p>
+      </div>
+      <div class="section">
+        <div class="section-number"><span>6</span></div>
+        <h1 class="section-name">Extend/Inheritance</h1>
+        <p>You can also extend the properties of one class to another class.
+        In this case we have a <span class="code">class="button"</span>
+        and a <span class="code">class="button-pink"</span> but we can DRY up
+        our code and just use one class.</p>
+        <p class="code">.button-pink<br />
+        &emsp;@extend .button<br /><br />
+        .button-pink:hover<br />
+        &emsp;color: $pink<br />
+        &emsp;border: 3px solid $pink</p>
+        <button type="button" class="button">Button</button>
+        <button type="button" class="button-pink">Button</button>
+      </div>
+      <div class="section">
+      <h4>Want to know more? Check out
+        <a href="http://compass-style.org/" class="pink">
+          Compass
+        </a>
+      </h4>
+      <h4>Or this very comprehensive
+        <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#partials" class="pink">
+          documentation on SASS
+        </a>.
+      </h4>
+    </div>
+    </div>
+  </body>
+  </html>
