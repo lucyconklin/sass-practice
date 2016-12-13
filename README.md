@@ -1,5 +1,6 @@
 # SASS Practice
 ### A lightning talk
+Fork this repo and clone it to your machine to play around with SASS styles.
 
 ### 1. Variables
 
